@@ -12,14 +12,49 @@
  */
 int binary_tree_balance(const binary_tree_t *tree)
 {
+<<<<<<< HEAD
 	int left_count = 0;
 	int right_count = 0;
+=======
+	int left_height = 0;
+	int right_height = 0;
+>>>>>>> 42d48e127cdb92e87ffa3ed1463cce88fd561405
 
 	if (!tree)
 		return (0);
 
+<<<<<<< HEAD
 	left_count = (int)binary_tree_height(tree->left);
 	right_count = (int)binary_tree_height(tree->right);
 
 	return (left_count - right_count);
 }
+=======
+	left_height = tree->left ? (int)binary_tree_height(tree->left) + 1 : 0;
+	right_height = tree->right ? (int)binary_tree_height(tree->right) + 1 : 0;
+
+	return (left_height - right_height);
+}
+#include "binary_trees.h"
+
+/**
+ * binary_tree_height - measures the height of a binary tree
+ *
+ * @tree: - is a pointer to the parent node of the node to create
+ * Return: a pointer to the newnode node, or NULL on failure
+ */
+
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t height_left = 0;
+	size_t height_right = 0;
+
+	if (!tree)
+		return (0);
+
+	height_left = tree->left ? 1 + binary_tree_height(tree->left) : 0;
+	height_right = tree->right ? 1 + binary_tree_height(tree->right) : 0;
+	return (height_left > height_right ? height_left : height_right);
+}
+
+>>>>>>> 42d48e127cdb92e87ffa3ed1463cce88fd561405
